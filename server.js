@@ -1,5 +1,5 @@
 //Dependencies
-const mysql = require("mysql");
+const orm = require("./config/orm.js");
 const express = require('express');
 const exphbs = require("express-handlebars");
 
@@ -7,24 +7,32 @@ const app = express();
 
 const PORT = process.env.PORT || 8666;
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "password",
-    database: "burgers_db"
-});
-
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    console.log("connected as id " + connection.threadId);
-});
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+var lunches = [{
+    lunch: "Beet & Goat Cheese Salad with minestrone soup."
+}, {
+    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp"
+}];
+
+// Routes
+app.get("/weekday", function(req, res) {
+    res.render("index", lunches[0]);
+});
+
+app.get("/weekend", function(req, res) {
+    res.render("index", lunches[1]);
+});
+
+app.get("/", function(req, res) {
+    res.render("all-burgers", {
+        foods: lunches,
+        eater: "david"
+    });
+});
+
 
 
 app.listen(PORT, function() {
