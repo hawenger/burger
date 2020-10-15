@@ -1,9 +1,9 @@
 $(function() {
     $(".change-devour").on("click", function(event) {
-        const id = $(this).data("id");
-        const newDevour = $(this).data("newdevour");
+        let id = $(this).data("id");
+        let newDevour = $(this).data("newdevour");
 
-        const newDevourState = {
+        let newDevourState = {
             devoured: newDevour
         };
 
@@ -24,7 +24,7 @@ $(function() {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        const newBurger = {
+        let newBurger = {
             name: $("#ca").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
