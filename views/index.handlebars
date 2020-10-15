@@ -4,47 +4,65 @@
       <h1>BURGER POLICE</h1>
     </div>
     <div class="grid grid-box-2">
-      <h2>EAT THEM</h2>
-      <div class="container container-1">
-        <ul>
-          {{#each burgers}}
-            {{#unless devoured}}
-              {{> burgers/burger-block devour=true}}
-            {{/unless}}
-          {{/each}}
-        </ul>
+      <div class="grid-box">
+        <div class="grid grid-a">
+          <h2>EAT THEM</h2>
+        </div>
+        <div class="grid grid-b">
+          <div class="container container-1">
+            <ul>
+              {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burgers/burger-block devour=true}}
+                {{/unless}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <div class="grid grid-box-3">
-      <h2>EATEN</h2>
-      <div class="container container-2">
-        <ul>
-          {{#each burgers}}
-            {{#if devoured}}
-              {{> burgers/burger-block devour=false}}
-            {{/if}}
-          {{/each}}
-        </ul>
+      <div class="grid-box">
+        <div class="grid grid-a">
+          <h2>EATEN</h2>
+        </div>
+        <div class="grid grid-b">
+          <div class="container container-2">
+            <ul>
+              {{#each burgers}}
+                {{#if devoured}}
+                  {{> burgers/burger-block devour=false}}
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <div class="grid grid-box-4">
-      <h2>Add a Burger</h2>
-      <div class="container container-3">
-        <form class="create-form">
+      <div class="grid-box">
+        <div class="grid grid-a">
+          <h2>Add a Burger</h2>
+        </div>
+        <div class="grid grid-b">
+          <div class="container container-3">
+            <form class="create-form">
 
-          <div class="form-group">
-            <label for="ca">Burger Name:</label>
-            <input type="text" id="ca" name="name">
+              <div class="form-group">
+                <label for="ca">Burger Name:</label>
+                <input type="text" id="ca" name="name">
+              </div>
+
+              <div class="form-group">
+                <label for="slee">Eaten?</label>
+                <input type="radio" name="devoured" value="1" checked>Eaten
+                <input type="radio" name="devoured" value="0"> Eat
+              </div>
+
+              <button type="submit">Add Burger</button>
+            </form>
           </div>
-
-          <div class="form-group">
-            <label for="slee">Eaten?</label><br>
-            <input type="radio" name="devoured" value="1" checked>Eaten<br>
-            <input type="radio" name="devoured" value="0"> Eat
-          </div>
-
-          <button type="submit">Add Burger</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
