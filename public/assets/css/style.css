@@ -114,6 +114,7 @@ li {
     color: #ffffff;
     font-size: 1.4em;
     text-transform: uppercase;
+    font-family: 'Concert One', cursive;
 }
 
 label {
@@ -196,11 +197,15 @@ button {
     color: rgb(218 237 189);
     transition: linear 0.1s;
     text-transform: lowercase;
+    color: rgb(240, 162, 2);
+    background-color: rgb(241, 136, 5);
 }
 
 .change-devour:hover {
     cursor: pointer;
     font-size: 1.0em;
+    background-color: rgb(217 93 57);
+    color: rgb(218 237 189);
 }
 
 button:hover {
